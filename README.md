@@ -25,4 +25,4 @@ Apps Script 接收端位於 [`apps-script/Code.gs`](apps-script/Code.gs)。部�
 
 ## GitHub Pages
 
-部署完成後，Pages 網址會補在這裡。`spec/` 僅供本機需求參考，不會納入 Git 追蹤。
+[開啟 GitHub Pages 點餐網站](https://kevinchen1604.github.io/2026teashop/)。`spec/` 僅供本機需求參考，不會納入 Git 追蹤。
