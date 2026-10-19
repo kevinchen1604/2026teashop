@@ -4,14 +4,14 @@ const HEADERS = ["訂單編號", "送出時間", "姓名", "飲料明細", "總�
 
 function setup() {
   const props = PropertiesService.getScriptProperties();
-  let spreadsheetId = props.getProperty("SPREADSHEET_ID");
-  let spreadsheet;
-  if (spreadsheetId) {
-    spreadsheet = SpreadsheetApp.openById(spreadsheetId);
-  } else {
+  const activeSpreadsheet = SpreadsheetApp.getActiveSpreadsheet();
+  const savedSpreadsheetId = props.getProperty("SPREADSHEET_ID");
+  let spreadsheet = activeSpreadsheet || (savedSpreadsheetId ? SpreadsheetApp.openById(savedSpreadsheetId) : null);
+  if (!spreadsheet) {
     spreadsheet = SpreadsheetApp.create(SPREADSHEET_TITLE);
-    props.setProperty("SPREADSHEET_ID", spreadsheet.getId());
   }
+  DriveApp.getFileById(spreadsheet.getId()).setName(SPREADSHEET_TITLE);
+  props.setProperty("SPREADSHEET_ID", spreadsheet.getId());
   let sheet = spreadsheet.getSheetByName(SHEET_NAME);
   if (!sheet) {
     const existingSheets = spreadsheet.getSheets();
@@ -25,6 +25,7 @@ function setup() {
   if (sheet.getLastRow() === 0) sheet.appendRow(HEADERS);
   sheet.setFrozenRows(1);
   sheet.getRange(1, 1, 1, HEADERS.length).setFontWeight("bold").setBackground("#dcecf5");
+  Logger.log("試算表網址：" + spreadsheet.getUrl());
   return spreadsheet.getUrl();
 }
 

@@ -4,18 +4,19 @@
 
 ## Google Sheet 設定
 
-Apps Script 接收端位於 [`apps-script/Code.gs`](apps-script/Code.gs)。部署一次即可建立名稱為「2026手搖飲點餐記錄」的試算表，標題列為「訂單編號、送出時間、姓名、飲料明細、總金額」。
+Apps Script 接收端位於 [`apps-script/Code.gs`](apps-script/Code.gs)。它會在目前試算表建立「訂單」工作表，並填入「訂單編號、送出時間、姓名、飲料明細、總金額」標題列。
 
-1. 使用 Google 帳號登入 [script.google.com](https://script.google.com)，新增 Apps Script 專案。
-2. 將 `apps-script/Code.gs` 貼入編輯器並儲存，選取 `setup` 後按「執行」，依提示授權。執行記錄會顯示新試算表網址。
-3. 選「部署」→「新增部署作業」→「網頁應用程式」；「執行身分」選自己，「誰可以存取」選「所有人」，部署並授權。
-4. 將 `/exec` 網址貼到 `app-config.js` 的 `window.ORDER_API_URL`，例如：
+1. 使用 Google 帳號建立試算表，檔名設為「2026手搖飲點餐記錄」。
+2. 從該試算表選「擴充功能」→「Apps Script」，將 `apps-script/Code.gs` 貼入編輯器並儲存。
+3. 選取 `setup` 後按「執行」，依提示授權；執行記錄會顯示試算表網址與建立標題列。
+4. 選「部署」→「新增部署作業」→「網頁應用程式」；「執行身分」選自己，「誰可以存取」選「所有人」，部署並授權。
+5. 將 `/exec` 網址貼到 `app-config.js` 的 `window.ORDER_API_URL`，例如：
 
    ```js
    window.ORDER_API_URL = "https://script.google.com/macros/s/部署識別碼/exec";
    ```
 
-5. 若修改 Apps Script，請在「部署作業」編輯既有部署並選擇新版本。
+6. 若修改 Apps Script，請在「部署作業」編輯既有部署並選擇新版本。
 
 未設定 Apps Script 網址時，網站會以示範模式將訂單存在目前瀏覽器的 localStorage，其他裝置看不到這些資料。正式使用前需完成上面的部署步驟。
 
