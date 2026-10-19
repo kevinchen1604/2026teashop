@@ -154,6 +154,11 @@
   });
 
   document.querySelector("#menu-search").addEventListener("input", (event) => { searchText = event.target.value; filterGroups(); });
+  if (!window.ORDER_API_URL) {
+    const note = document.querySelector("#integration-note");
+    note.textContent = "預覽模式：訂單只會保存在目前裝置，尚未連接共用 Google Sheet。";
+    note.hidden = false;
+  }
   renderFilters();
   renderMenu();
   updateSummary();
