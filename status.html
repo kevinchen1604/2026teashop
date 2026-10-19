@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#1e5d96">
+    <title>目前訂單｜金茶伍班級飲料團</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="金茶伍班級飲料團首頁">
+        <span class="brand-mark" aria-hidden="true">金</span>
+        <span><strong>金茶伍</strong><small>班級飲料團</small></span>
+      </a>
+      <nav aria-label="主要導覽">
+        <a class="nav-link" href="index.html">我要點餐</a>
+        <a class="nav-link active" href="status.html">查看訂單</a>
+      </nav>
+    </header>
+    <main class="status-main">
+      <section class="status-hero">
+        <p class="eyebrow">ORDER BOARD</p>
+        <h1>目前點餐狀況</h1>
+        <p>看看同學們點了什麼，最新訂單會排在最前面。</p>
+        <div class="status-actions"><button id="refresh-orders" class="secondary-button" type="button">重新整理</button><a class="submit-button compact" href="index.html">＋ 我要點餐</a></div>
+      </section>
+      <section class="status-card" aria-labelledby="orders-heading">
+        <div class="status-card-heading"><div><p class="eyebrow">CLASS ORDERS</p><h2 id="orders-heading">訂單紀錄</h2></div><span id="order-count" class="order-count">0 筆</span></div>
+        <p id="status-message" class="status-message" aria-live="polite">正在載入訂單…</p>
+        <div class="table-wrap"><table class="orders-table"><thead><tr><th>姓名</th><th>飲料內容</th><th>金額</th><th>送出時間</th></tr></thead><tbody id="orders-body"></tbody></table></div>
+      </section>
+      <p class="privacy-note">訂單內容供班級統計使用，請勿填寫不必要的個人資料。</p>
+    </main>
+    <footer class="site-footer"><span>金茶伍・班級飲料團</span><span><a href="index.html">回到點餐頁</a></span></footer>
+    <script src="app-config.js"></script>
+    <script src="status.js"></script>
+  </body>
+</html>

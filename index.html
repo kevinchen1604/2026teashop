@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#1e5d96">
+    <title>金茶伍班級飲料團</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="金茶伍班級飲料團首頁">
+        <span class="brand-mark" aria-hidden="true">金</span>
+        <span><strong>金茶伍</strong><small>班級飲料團</small></span>
+      </a>
+      <nav aria-label="主要導覽">
+        <a class="nav-link active" href="index.html">我要點餐</a>
+        <a class="nav-link" href="status.html">查看訂單</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="menu-row" aria-labelledby="menu-heading">
+        <div class="section-heading">
+          <div><p class="eyebrow">MENU</p><h1 id="menu-heading">今日飲料菜單</h1></div>
+          <p class="heading-note">先看菜單，再往下填寫點餐單</p>
+        </div>
+        <a class="menu-image-link" href="menu.jpg" target="_blank" rel="noreferrer" aria-label="另開完整菜單圖片">
+          <img class="menu-image" src="menu.jpg" alt="金茶伍完整飲料菜單，包含品項與價格" loading="eager">
+        </a>
+      </section>
+
+      <section class="order-row" aria-label="點餐表單與金額">
+        <form id="order-form" class="order-panel">
+          <div class="panel-heading">
+            <div><p class="eyebrow">YOUR ORDER</p><h2>選擇飲料</h2></div>
+            <span class="step-badge">1 / 2</span>
+          </div>
+          <label class="name-field" for="customer-name">輸入姓名 <span>*</span>
+            <input id="customer-name" name="name" type="text" maxlength="40" autocomplete="name" placeholder="點餐同學的姓名" required>
+          </label>
+          <div class="menu-tools">
+            <label class="search-field" for="menu-search"><span aria-hidden="true">⌕</span>
+              <input id="menu-search" type="search" placeholder="搜尋飲料名稱" autocomplete="off">
+            </label>
+            <div id="category-filters" class="category-filters" aria-label="飲料分類"></div>
+          </div>
+          <p id="menu-count" class="menu-count" aria-live="polite"></p>
+          <div id="drink-groups" class="drink-groups"></div>
+          <p id="form-error" class="form-error" role="alert"></p>
+        </form>
+
+        <aside class="price-panel" aria-labelledby="price-heading">
+          <div class="panel-heading">
+            <div><p class="eyebrow">ORDER SUMMARY</p><h2 id="price-heading">價格明細</h2></div>
+            <span class="step-badge">2 / 2</span>
+          </div>
+          <div id="summary-items" class="summary-items"><p class="empty-summary">選好飲料後，金額會顯示在這裡。</p></div>
+          <div class="total-line"><span>預估總額</span><strong id="total-price">NT$ 0</strong></div>
+          <p class="price-hint">價格會隨品項、容量、數量和加料即時更新。</p>
+          <button id="submit-order" class="submit-button" type="submit" form="order-form">送出訂單 <span aria-hidden="true">→</span></button>
+          <p id="submit-status" class="submit-status" aria-live="polite"></p>
+          <a class="status-shortcut" href="status.html">已經送出？查看目前訂單 <span aria-hidden="true">↗</span></a>
+          <div class="notice-card"><span aria-hidden="true">✦</span><p>送出前確認姓名和品項，送出後可在「查看訂單」確認紀錄。</p></div>
+        </aside>
+      </section>
+    </main>
+    <footer class="site-footer"><span>金茶伍・班級飲料團</span><span>一起喝杯好茶 ☺</span></footer>
+    <script src="app-config.js"></script>
+    <script src="menu-data.js"></script>
+    <script src="order.js"></script>
+  </body>
+</html>
